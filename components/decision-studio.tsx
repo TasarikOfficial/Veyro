@@ -61,7 +61,7 @@ export function DecisionStudio() {
             <label><small>{item.weight}</small><input type="range" min="1" max="5" value={item.weight} onChange={(e) => update(item.id, "weight", Number(e.target.value))} aria-label={`${item.name} weight`} /></label>
             <input className="scoreInput" type="number" min="1" max="10" value={item.a} onChange={(e) => update(item.id, "a", Number(e.target.value))} aria-label={`${item.name} option A score`} />
             <input className="scoreInput" type="number" min="1" max="10" value={item.b} onChange={(e) => update(item.id, "b", Number(e.target.value))} aria-label={`${item.name} option B score`} />
-            <button className="remove" onClick={() => setCriteria(criteria.filter((x) => x.id !== item.id))} aria-label={`Remove ${item.name}`}>×</button>
+            <button className="remove" onClick={() => setCriteria((items) => items.filter((x) => x.id !== item.id))} aria-label={`Remove ${item.name}`}>×</button>
           </div>
         ))}
         <button className="add" onClick={addCriterion}>+ Add criterion</button>
